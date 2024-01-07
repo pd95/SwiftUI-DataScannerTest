@@ -11,6 +11,10 @@
 		1786DAA42B4AF1110041DCDE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1786DAA32B4AF1110041DCDE /* ContentView.swift */; };
 		1786DAA62B4AF1130041DCDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1786DAA52B4AF1130041DCDE /* Assets.xcassets */; };
 		1786DAA92B4AF1130041DCDE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1786DAA82B4AF1130041DCDE /* Preview Assets.xcassets */; };
+		1786DAB02B4AF13B0041DCDE /* ScannerDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1786DAAF2B4AF13B0041DCDE /* ScannerDataViewModel.swift */; };
+		1786DAB22B4AF16E0041DCDE /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1786DAB12B4AF16E0041DCDE /* ScanView.swift */; };
+		1786DAB42B4AF1950041DCDE /* ViewInsideScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1786DAB32B4AF1950041DCDE /* ViewInsideScanView.swift */; };
+		1786DAB62B4AF1B40041DCDE /* DataScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1786DAB52B4AF1B40041DCDE /* DataScannerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		1786DAA32B4AF1110041DCDE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1786DAA52B4AF1130041DCDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1786DAA82B4AF1130041DCDE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1786DAAF2B4AF13B0041DCDE /* ScannerDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerDataViewModel.swift; sourceTree = "<group>"; };
+		1786DAB12B4AF16E0041DCDE /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
+		1786DAB32B4AF1950041DCDE /* ViewInsideScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInsideScanView.swift; sourceTree = "<group>"; };
+		1786DAB52B4AF1B40041DCDE /* DataScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataScannerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +61,10 @@
 			children = (
 				1786DAA12B4AF1110041DCDE /* DataScannerTestApp.swift */,
 				1786DAA32B4AF1110041DCDE /* ContentView.swift */,
+				1786DAAF2B4AF13B0041DCDE /* ScannerDataViewModel.swift */,
+				1786DAB12B4AF16E0041DCDE /* ScanView.swift */,
+				1786DAB32B4AF1950041DCDE /* ViewInsideScanView.swift */,
+				1786DAB52B4AF1B40041DCDE /* DataScannerView.swift */,
 				1786DAA52B4AF1130041DCDE /* Assets.xcassets */,
 				1786DAA72B4AF1130041DCDE /* Preview Content */,
 			);
@@ -137,8 +149,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1786DAB62B4AF1B40041DCDE /* DataScannerView.swift in Sources */,
 				1786DAA42B4AF1110041DCDE /* ContentView.swift in Sources */,
+				1786DAB42B4AF1950041DCDE /* ViewInsideScanView.swift in Sources */,
+				1786DAB22B4AF16E0041DCDE /* ScanView.swift in Sources */,
 				1786DAA22B4AF1110041DCDE /* DataScannerTestApp.swift in Sources */,
+				1786DAB02B4AF13B0041DCDE /* ScannerDataViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,11 +291,13 @@
 				DEVELOPMENT_TEAM = P8CC95REUG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need to access the camera to read barcodes.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,11 +322,13 @@
 				DEVELOPMENT_TEAM = P8CC95REUG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need to access the camera to read barcodes.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
