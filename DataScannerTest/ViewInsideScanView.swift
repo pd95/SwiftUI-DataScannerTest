@@ -12,7 +12,7 @@ import VisionKit
 struct ViewInsideScanView: View {
     
     @EnvironmentObject var vm: ScannerDataViewModel
-    @State private var isSheetPresented = true
+    @State private var isSheetPresented = false
     
     private let textContentTypes: [(title: String, textContentType: DataScannerViewController.TextContentType?)] = [
         ("All", .none),
@@ -36,7 +36,7 @@ struct ViewInsideScanView: View {
             Text("Camera Access Request.")
         }
     }
-    
+
     private var mainView: some View {
         DataScannerView(
             recognizedItems: $vm.recognizedItems,
@@ -45,6 +45,12 @@ struct ViewInsideScanView: View {
         .background { Color.gray.opacity(0.3) }
         .ignoresSafeArea()
         .id(vm.dataScannerViewId)
+        .onAppear {
+            print("ViewInsideScanView onAppear")
+        }
+        .onDisappear {
+            print("ViewInsideScanView onDisappear")
+        }
         .sheet(isPresented: $isSheetPresented) {
             bottomContainerView
                 .background(.ultraThinMaterial)

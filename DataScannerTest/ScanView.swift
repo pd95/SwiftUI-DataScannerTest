@@ -50,6 +50,7 @@ struct ScanView: View {
             }
             .environmentObject(vm)
             .onAppear {
+                print("ScanView onAppear")
                 Task {
                     await vm.requestDataScannerAccessStatus()
                 }

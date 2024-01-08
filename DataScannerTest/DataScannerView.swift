@@ -17,6 +17,7 @@ struct DataScannerView: UIViewControllerRepresentable {
     
     
     func makeUIViewController(context: Context) -> DataScannerViewController {
+        print(#function)
         let vc = DataScannerViewController(
             recognizedDataTypes: [recognizedDataType],
             qualityLevel: .balanced,
@@ -28,15 +29,33 @@ struct DataScannerView: UIViewControllerRepresentable {
     }
     
     func updateUIViewController(_ uiViewController: DataScannerViewController, context: Context) {
-        uiViewController.delegate = context.coordinator
-        try? uiViewController.startScanning()
+        print(#function)
+        if uiViewController.delegate == nil {
+            uiViewController.delegate = context.coordinator
+        }
+        if uiViewController.isScanning == false {
+            print("🟡 Scanning was stopped. Starting now")
+            do {
+                try uiViewController.startScanning()
+            } catch {
+                print("🔴 startScanning failed with \(error)")
+            }
+        }
+        if !uiViewController.recognizedDataTypes.contains(recognizedDataType) {
+            print("recognizedDataType did change to ", recognizedDataType)
+        }
+        if uiViewController.recognizesMultipleItems != recognizesMultipleItems {
+            print("recognizesMultipleItems did change to ",recognizesMultipleItems)
+        }
     }
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(recognizedItems: $recognizedItems)
+        print(#function)
+        return Coordinator(recognizedItems: $recognizedItems)
     }
     
     static func dismantleUIViewController(_ uiViewController: DataScannerViewController, coordinator: Coordinator) {
+        print(#function)
         uiViewController.stopScanning()
     }
     
@@ -46,9 +65,14 @@ struct DataScannerView: UIViewControllerRepresentable {
         @Binding var recognizedItems: [RecognizedItem]
         
         init(recognizedItems: Binding<[RecognizedItem]>) {
+            print(#function)
             self._recognizedItems = recognizedItems
         }
-        
+
+        deinit {
+            print(#function)
+        }
+
         func dataScanner(_ dataScanner: DataScannerViewController, didTapOn item: RecognizedItem) {
             print("didTapOn \(item)")
         }
@@ -69,7 +93,5 @@ struct DataScannerView: UIViewControllerRepresentable {
         func dataScanner(_ dataScanner: DataScannerViewController, becameUnavailableWithError error: DataScannerViewController.ScanningUnavailable) {
             print("became unavailable with error \(error.localizedDescription)")
         }
-        
     }
-    
 }

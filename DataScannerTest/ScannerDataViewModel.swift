@@ -61,6 +61,7 @@ final class ScannerDataViewModel: ObservableObject {
     func requestDataScannerAccessStatus() async {
         guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
             dataScannerAccessStatus = .cameraNotAvailable
+            print(#function, "dataScannerAccessStatus", dataScannerAccessStatus)
             return
         }
         
@@ -82,5 +83,6 @@ final class ScannerDataViewModel: ObservableObject {
             
         default: break
         }
+        print(#function, "dataScannerAccessStatus", dataScannerAccessStatus)
     }
 }
