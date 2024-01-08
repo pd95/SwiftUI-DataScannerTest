@@ -31,7 +31,8 @@ final class ScannerDataViewModel: ObservableObject {
     @Published var scanType: ScanType = .barcode
     @Published var textContentType: DataScannerViewController.TextContentType?
     @Published var recognizesMultipleItems = true
-    
+    @Published var appearCount = 0
+
     var recognizedDataType: DataScannerViewController.RecognizedDataType {
         scanType == .barcode ? .barcode() : .text(textContentType: textContentType)
     }
@@ -48,6 +49,7 @@ final class ScannerDataViewModel: ObservableObject {
         var hasher = Hasher()
         hasher.combine(scanType)
         hasher.combine(recognizesMultipleItems)
+        hasher.combine(appearCount)
         if let textContentType {
             hasher.combine(textContentType)
         }

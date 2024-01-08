@@ -47,6 +47,7 @@ struct ViewInsideScanView: View {
         .id(vm.dataScannerViewId)
         .onAppear {
             print("ViewInsideScanView onAppear")
+            vm.appearCount += 1    // FIXME: by enabling this line, the DataScannerView will be recreated
         }
         .onDisappear {
             print("ViewInsideScanView onDisappear")
