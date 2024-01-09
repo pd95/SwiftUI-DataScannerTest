@@ -26,7 +26,8 @@ struct ScanView: View {
 
                 Spacer()
 
-                CenteredSquareView(content: viewInsideScan)
+                viewInsideScan
+                    .clipShape(.rect(cornerRadius: 20))
                     .frame(width: 350, height: 350, alignment: .center)
 
                 Spacer()
@@ -49,22 +50,6 @@ struct ScanView: View {
                 }
             }
         }
-    }
-}
-
-struct CenteredSquareView<Content: View>: View {
-    var content: Content
-    
-    var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                content
-                    .frame(width: geometry.size.width * 1, height: geometry.size.width * 1)
-                    .cornerRadius(20)
-                    .position(x: geometry.size.width / 2, y: geometry.size.height / 2) // Posiziona al centro
-            }
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
